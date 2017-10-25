@@ -1,0 +1,24 @@
+<app-header-login></app-header-login>
+
+<form (ngSubmit)="addProduct()">
+    
+          <input required type="text" name="name" [(ngModel)]="NewProduct.name"  placeholder="New name" class="form-control">
+          <input required type="text" name="color" [(ngModel)]="NewProduct.color"  placeholder="color"  class="form-control">
+          <input required type="text" name="img" [(ngModel)]="NewProduct.img"  placeholder="img" class="form-control">
+          <input required type="text" name="type" [(ngModel)]="NewProduct.type"  placeholder="type" class="form-control">
+            <input required type="text" name="price" [(ngModel)]="NewProduct.price"  placeholder="price" class="form-control">
+            
+          <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-2">
+              <button type="submit" class="btn btn-success">Register Me!</button>
+            </div>
+            <div class="col-sm-5">
+            </div>
+          </div>
+   </form>
+
+   <div class="footer">
+      <app-footer></app-footer>
+     </div>

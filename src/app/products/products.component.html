@@ -1,0 +1,77 @@
+<app-header-login></app-header-login>
+<div width="70%">
+  <div style="text-align: right">
+    <a href="/addProduct">Add New product</a>
+  </div>
+  <br>
+  <br>
+  <div *ngFor="let p of products">
+
+    <div class="col-sm-3">
+      <article class="col-item">
+        <div class="img-rounded">
+          <a (click)="onclick(p)">
+            <img src={{p.img}} style="width:150px;height:150px;"> </a>
+        </div>
+        <div class="info">
+          <div class="price-details col-md-6">
+            <span class="price">
+              <br>{{p.name}}
+              <br>{{p.price}}</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+<br><br>
+<p style="text-align:center">CART</p>
+<div width="30%">
+  <div *ngFor="let c of cartProducts, let indexx = index">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>price</th>
+            <th>color</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img src="{{c.img}}" height=40px widhth=30px>
+            </td>
+            <td>{{c.name}}</td>
+            <td>{{c.price}}</td>
+            <td>{{c.color}}</td>
+            <td>{{c.type}}</td>
+            <td>
+              <input type="number" (click)="totalBill(indexx)" min="0" max="100" placeholder="select quantity" [(ngModel)]="c.quantity" ngonchanges >
+            </td>
+            <td>
+              <input type="text" value={{c.total}}>
+            </td>
+            <button (click)="deleteProduct(c._id)">Delete</button>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>
+
+<div style="text-align:center">
+ <button (click) = "showCart()"  >Show Cart!</button>
+<button (click)="showTotal()">Total Price</button>
+<div>{{totalPrice}}</div>
+</div>
+
+<div class="footer">
+  <app-footer></app-footer>
+</div>
